@@ -1,0 +1,81 @@
+<form class="container text-center" action="" method="POST" autocomplete="off">
+    <div class="form-group">
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text">Event Name</span>
+            </div>
+            <input type="text" name="eventName" class="form-control validateField" value="<%=event.eventName%>">
+
+        </div>
+    </div>
+    <div class=" form-group">
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text">Date</span>
+            </div>
+            <input type="date" name="eventDate" class="form-control validateField" value="<%=event.eventDate%>">
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text">Description</span>
+            </div>
+            <input type="text" name="description" class="form-control validateField" value="<%=event.description%>" />
+
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text">Address</span>
+            </div>
+            <input type="text" name="eventAddress" class="form-control validateField" value="<%=event.eventAddress%>">
+
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text">Max Capacity</span>
+            </div>
+            <input type="text" name="maxCapacity" class="form-control validateField" value="<%=event.maxCapacity%>">
+
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text">Number Attending</span>
+            </div>
+            <input type="text" name="numberAttending" class="form-control validateField"
+                value="<%=event.numberAttending%>">
+
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text">Start Time</span>
+            </div>
+            <input type="text" name="startTime" class="form-control validateField"
+                value="<%=moment(event.startTime).format('LT')%>">
+
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text">End Time</span>
+            </div>
+            <input type="text" name="endTime" class="form-control validateField"
+                value="<%=moment(event.endTime).format('LT')%>">
+
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary" id="updateBtn">Update</button>
+    <!-- <button type="buttons" class="btn btn-danger" id="updateBtn" onClick="cancel()
+            ">Cancel</button> -->
+    <a class="btn btn-secondary" id="updateBtn" href="<%=event.eventDetailUrl %>">Cancel</a>
+
+</form>

@@ -1,0 +1,79 @@
+<html>
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+    </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+    </script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js">
+    </script>
+    <script src="/javascript/updateProfile.js"></script>
+    <style>
+        #updateProfile {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <%include components/navbar.ejs%>
+    <br />
+    <div id="eventDetails" class="container text-center">
+        <h1><%=event.eventName%></h1>
+        <hr />
+        <div class="input-group mb-3">
+            <div class="input-group-prepend text-center">
+                <span class="input-group-text" id="">Date</span>
+            </div>
+            <p class="form-control"><%=moment(event.eventDate).format('dddd, MMMM Do YYYY')%></p>
+        </div>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="">Description</span>
+            </div>
+            <p class="form-control"><%=event.description%></p>
+        </div>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="">Address</span>
+            </div>
+            <p class="form-control"><%=event.eventAddress%></p>
+        </div>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="">Max Capacity</span>
+            </div>
+            <p class="form-control"><%=event.maxCapacity%></p>
+        </div>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="">Number Attending</span>
+            </div>
+            <p class="form-control"><%=event.numberAttending%></p>
+        </div>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="">Start Time</span>
+            </div>
+            <p class="form-control"><%=moment(event.startTime).format('LT')%></p>
+        </div>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="">End Time</span>
+            </div>
+            <p class="form-control"><%=moment(event.endTime).format('LT')%></p>
+        </div>
+        
+        <% if (user.id == hostId) {%>
+            <a class="btn btn-primary" id="updateBtn" href="<%=event.eventUpdateURL %>">Edit</a>
+        <% } %>
+    </div>
+</body>
+
+</html>

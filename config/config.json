@@ -1,0 +1,29 @@
+{
+    "development": {
+        "username": "dbuser",
+        "password": "secret",
+        "database": "mydb",
+        "host": "database_group9",
+        "dialect": "mysql",
+        "operatorsAliases": false,
+        "logging": false
+    },
+    "test": {
+        "username": "root",
+        "password": null,
+        "database": "database_test",
+        "host": "database_group9",
+        "dialect": "mysql",
+        "operatorsAliases": false,
+        "logging": false
+    },
+    "production": {
+        "username": "dbuser",
+        "password": "secret",
+        "database": "database_production",
+        "host": "database_group9",
+        "dialect": "mysql",
+        "operatorsAliases": false,
+        "logging": false
+    }
+}

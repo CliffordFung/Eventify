@@ -1,0 +1,48 @@
+<div id="event-content-title">Create Event</div>
+<form>
+    Hostname:<br>
+    <input type="text" name="firstname"><br>
+    Date:<br>
+    <input type="text" name="lastname"> <br>
+    Address:<br>
+    <input type="text" name="lastname"> <br>
+    Max Capacity:<br>
+    <input type="text" name="lastname"> <br>
+    Event Name:<br>
+    <input type="text" name="lastname"> <br>
+    Event Name:<br>
+    <input type="text" name="lastname"> <br>
+    Description:<br>
+    <input type="text" name="lastname"> <br>
+    Add Resources:<br>
+    <div id='populateResources'>
+        <input type="text" id="addResource"><br>
+        <input type="checkbox" name="lastname" value="res1">Res1 <br>
+    </div>
+    <button type="button" onclick="addResources()"> Add Resource</button>
+</form>
+<script>
+    function addResources() {
+        var textInput = $('#addResource').val()
+        console.log(textInput)
+        var checkbox = '<input type="checkbox" name="lastname1"' +
+            ' value="' + textInput + '">' +
+            textInput + ' <br>'
+        $('#populateResources').append(checkbox)
+    }
+</script>
+
+<!-- 
+      set event name
+      add resources
+     -->
+
+<!-- 
+    <div id="event-content-title">Title</div>
+    <div id="event-date">date</div>
+    <div id="event-date">max capacity</div>
+    <div id="event-date">Date</div>
+    <div id="event-description">Desciption</div>
+    <div id="event-address">Address</div>
+    <div id="event-max-capacity">Max Capacity</div>
+    <div id="event-resources">Resources</div> -->

@@ -1,0 +1,58 @@
+{
+    "events" : [{
+        "eventID": "2303",
+        "title":"Pickup Basketball",
+        "date":"July 30, 2019",
+        "time":"4:00 pm",
+        "status": "upcoming",
+        "hostID": "303303",
+        "description":"Bring your friends and let's play",
+        "address":"3291 Windcrest Rd",
+        "max_capacity":"25",
+        "num_attending" : "20"
+    }, {
+        "eventID": "2304",
+        "title":"Soccer Practice",
+        "date":"July 31, 2019",
+        "time":"4:00 pm",
+        "status": "upcoming",
+        "hostID": "303305",
+        "description":"value2",
+        "address":"value2",
+        "max_capacity":"40",
+        "num_attending" : "24"
+    },{
+        "eventID": "2306",
+        "title":"Party at My House",
+        "date":"Aug 2, 2019",
+        "time":"4:00 pm",
+        "status": "upcoming",
+        "hostID": "303307",
+        "description":"It's gonna be lit",
+        "address":"my house",
+        "max_capacity":"25",
+        "num_attending" : "25"
+    },{
+        "eventID": "2307",
+        "title":"Let's take a walk downtown",
+        "date":"Aug 5, 2019",
+        "time":"4:00 pm",
+        "status": "upcoming",
+        "hostID": "303305",
+        "description":"Let's explore what shops are downtown",
+        "address":"granville st.",
+        "max_capacity":"26",
+        "num_attending" : "20"
+    },{
+        "eventID": "2309",
+        "title":"Art Gallery",
+        "date":"Aug 7, 2019",
+        "time":"4:00 pm",
+        "status": "upcoming",
+        "hostID": "303303",
+        "description":"Let's explore art together!",
+        "address":"art gallery vancouver",
+        "max_capacity":"14",
+        "num_attending" : "14"
+    }]
+}

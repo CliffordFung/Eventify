@@ -1,0 +1,53 @@
+# version: '2.3'
+version: '3'
+services:
+
+  database-group9:
+    image: "mysql:latest"
+    command: --default-authentication-plugin=mysql_native_password
+    container_name: database_group9
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: "secret"
+      MYSQL_DATABASE: "mydb"
+      MYSQL_USER: "dbuser"
+      MYSQL_PASSWORD: "secret"
+    volumes: 
+      - group9Volume:/var/lib/mysql
+      # - ./initdb.sql:/docker-entrypoint-initdb.d/initdb.sql
+    # networks:
+    #   db_net:
+    #     ipv4_address: 172.22.0.100
+  
+  backend-group9:
+    # image: nginx:alpine
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    restart: always
+    container_name: backend_group9
+    ports:
+      - "80:3000"
+#    volumes: 
+#      - .:/usr/src/app
+
+  # mysqlAdmin:
+  #   image: "phpmyadmin/phpmyadmin"
+  #   container_name: mysqlAdmin
+  #   environment: 
+  #     MYSQL_USER: dbuser
+  #     MYSQL_ROOT_PASSWORD: secret
+  #     PMA_HOST: database_group9
+  #   ports: 
+  #     - 8080:80
+
+volumes:
+  group9Volume:
+
+# networks: 
+#   db_net:
+#     driver: bridge
+#     ipam: 
+#       config: 
+#         - subnet: 172.22.0.0/16

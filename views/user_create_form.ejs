@@ -1,0 +1,149 @@
+<html>
+
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="https://code.jquery.com/jquery-2.2.4.min.js"
+		integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+		integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+	</script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+		integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+	</script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+		integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="/stylesheets/index.css">
+	<!-- <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
+</head>
+
+<body>
+	<!-- /#sidebar-wrapper -->
+	<!-- Page Content -->
+	<!-- <div id="page-content-wrapper"> -->
+	<div class="card card-body mb-3 form-login">
+		<div class="container-fluid">
+				<% include ./components/messages %>
+				<% if(typeof errors !== 'undefined') {%>
+				<% if(errors){errors.forEach(function(error){%>
+					<div class="alert alert-danger"><%= error.msg %></div>
+					<% })}} %>
+			<div class="row">
+				<div class="col-lg-12">
+					
+					<form action="" method="POST">
+						<div class="form-group">
+							<div class="input-group mb-3">
+								<div class="input-group-prepend">
+									<span class="input-group-text">Username</span>
+								</div>
+								<input class="form-control" autocomplete=“off” placeholder="Username to login with"
+									type="text" name="username" required />
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="input-group mb-3">
+								<div class="input-group-prepend">
+									<span class="input-group-text">Password</span>
+								</div>
+								<input class="form-control" autocomplete=“off” placeholder="Password to login with"
+									type="password" name="password" required />
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="input-group mb-3">
+								<div class="input-group-prepend">
+									<span class="input-group-text">Confirm Password</span>
+								</div>
+								<input class="form-control" autocomplete=“off”
+									placeholder="Enter the same password again" type="password" name="password2"
+									required />
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="input-group mb-3">
+								<div class="input-group-prepend">
+									<span class="input-group-text">First Name:</span>
+								</div>
+								<input class="form-control" autocomplete=“off” placeholder="Enter your first name"
+									type="text" name="firstName" required />
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="input-group mb-3">
+								<div class="input-group-prepend">
+									<span class="input-group-text">Last Name:</span>
+								</div>
+								<input class="form-control" autocomplete=“off” placeholder="Enter your last name"
+									type="text" name="lastName" required />
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="input-group mb-3">
+								<div class="input-group-prepend">
+									<span class="input-group-text">Date of Birth:</span>
+								</div>
+								<input id="dateOfBirth " class="form-control" autocomplete=“off”
+									placeholder="YYYY/MM/DD" type="date" name="dateOfBirth" required />
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="input-group mb-3">
+								<div class="input-group-prepend">
+									<span class="input-group-text">Gender:</span>
+								</div>
+								<input class="form-control" autocomplete=“off” placeholder="i.e. Female" type="text"
+									name="gender" required />
+
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="input-group mb-3">
+								<div class="input-group-prepend">
+									<span class="input-group-text">City:</span>
+								</div>
+								<input class="form-control" autocomplete=“off” placeholder="i.e. Vancouver" type="text"
+									name="city" required />
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="input-group mb-3">
+								<div class="input-group-prepend">
+									<span class="input-group-text">Country:</span>
+								</div>
+								<input class="form-control" autocomplete=“off” placeholder="i.e. Canada" type="text"
+									name="country" required />
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="input-group mb-3">
+								<div class="input-group-prepend">
+									<span class="input-group-text">Email:</span>
+								</div>
+								<input class="form-control" autocomplete=“off” placeholder="Enter your valid email"
+									type="email" name="email" required />
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="input-group mb-3">
+								<div class="input-group-prepend">
+									<span class="input-group-text">Bio:</span>
+								</div>
+								<textarea class="form-control" autocomplete=“off”
+									placeholder="Enter anything about yourself" name="bio" required></textarea>
+							</div>
+						</div>
+
+						<button class="btn btn-outline-secondary" type='submit' value='Submit'>Create
+							User</button>
+						<a href="/login" class="btn btn-outline-secondary">Go Back</a>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	</div>
+</body>
+
+</html>

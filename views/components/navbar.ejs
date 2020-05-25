@@ -1,0 +1,32 @@
+<!-- Implemented from https://ejs.co/#docs -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="/">Eventify</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+    aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse text-right" id="navbarNavDropdown">
+    <!-- navbar-nav ml-auto -->
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/profile">Profile</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/events">My Events</a>
+      </li>
+
+      <li class="nav-item">
+          <a class="nav-link" href="/logout">Logout</a>
+        </li>
+      </li>
+    </ul>
+  </div>
+</nav>
+<style>
+  div#accDrop {
+    left: -60;
+  }
+</style>

@@ -1,0 +1,299 @@
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script> -->
+  <!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+  </script> -->
+  <script src="https://code.jquery.com/jquery-2.2.4.min.js"
+    integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+    </script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+    </script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <script type="text/javascript"
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCTyhHnH1Hz51z5x7dqPsbiDCKQ7py_eIk"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/stylesheets/index.css">
+  <!--  <link rel="stylesheet" href="/stylesheets/css/navbar.css">-->
+  <script src="/javascript/mapload.js"></script>
+  <script src="/javascript/renderForm.js"></script>
+  <script src="/javascript/searchEvent.js"></script>
+  <style>
+    input[type="checkbox"] {
+      opacity: 0;
+    }
+
+    .resList {
+      padding: 0.5em;
+    }
+
+    .catList {
+      padding: 0.5em;
+    }
+
+    /* .populateResources {
+      display: none;
+    } */
+  </style>
+</head>
+
+<body>
+  <% include ./components/navbar%>
+  <div id="wrapper">
+    <!-- Sidebar -->
+    <div id="page-content-wrapper">
+      <div class="card" id="sidebar-wrapper">
+        <ul class="sidebar-nav" id="side_bar">
+          <!-- <li class="sidebar-brand" > -->
+          <br />
+          <div id=filter-event-content-title>Events</div>
+          <!-- </li> -->
+          <hr>
+          <div class="sidebar-filter ">
+            <div class="dropdown col text-center">
+              <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
+                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Select Category
+              </button>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                <a class="dropdown-item" id="All1" onclick="parseCategory(this.id)">All</a>
+                <a class="dropdown-item" id="Sports1" onclick="parseCategory(this.id)">Sports</a>
+                <a class="dropdown-item" id="Entertainment1" onclick="parseCategory(this.id)">Entertainment</a>
+                <a class="dropdown-item" id="Music1" onclick="parseCategory(this.id)">Music</a>
+                <a class="dropdown-item" id="Fitness1" onclick="parseCategory(this.id)">Fitness</a>
+                <a class="dropdown-item" id="Visual Arts1" onclick="parseCategory(this.id)">Visual Arts</a>
+                <a class="dropdown-item" id="Film1" onclick="parseCategory(this.id)">Film</a>
+                <a class="dropdown-item" id="Fashion1" onclick="parseCategory(this.id)">Fashion</a>
+                <a class="dropdown-item" id="Food & Drink1" onclick="parseCategory(this.id)">Food & Drink</a>
+                <a class="dropdown-item" id="Festivals & Fairs1" onclick="parseCategory(this.id)">Festivals & Fairs</a>
+                <a class="dropdown-item" id="Nightlife1" onclick="parseCategory(this.id)">Nightlife</a>
+                <a class="dropdown-item" id="Kids & Family1" onclick="parseCategory(this.id)">Kids & Family</a>
+                <a class="dropdown-item" id="Wedding1" onclick="parseCategory(this.id)">Wedding</a>
+                <a class="dropdown-item" id="Other1" onclick="parseCategory(this.id)">Other</a>
+              </div>
+            </div>
+          </div>
+          <br />
+          <div class="col text-center">
+            <div class="input-group mb-3">
+              <input class="form-control" onkeyup="searchEvent(document.getElementById('eventSearch').value)"
+                type="text" placeholder="Search Event" id="eventSearch" />
+              <!-- <input class="form-control" onkeyup="searchEvent()" type="text" placeholder="Search event" id="eventSearch" /> -->
+              <script>
+                document.getElementById('eventSearch').onkeypress = function (e) {
+                  var key = e.charCode || e.keyCode || 0;
+                  if (key == 13) {
+                    e.preventDefault();
+                  }
+                }
+              </script>
+            </div>
+          </div>
+          
+          </br>
+
+          <hr />
+          <div id="sidebar-list">
+
+          </div>
+        </ul>
+      </div>
+      <div class="card card-body mb-3 " id="event-content-wrapper">
+        <div id="informationWindow" class="col text-center">
+          <div id="event-content-title">Event Info</div>
+          <hr />
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text">Date</span>
+            </div>
+            <p class="form-control" id="event-date"></p>
+          </div>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text">Start Time</span>
+            </div>
+            <p class="form-control" id="event-start-time"></p>
+          </div>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text">End Time</span>
+            </div>
+            <p class="form-control" id="event-end-time"></p>
+          </div>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text">Address</span>
+            </div>
+            <p class="form-control" id="event-address" readonly></p>
+          </div>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text">Max Capacity</span>
+            </div>
+            <p class="form-control" id="event-max-capacity"></p>
+          </div>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text">Currently Attending</span>
+            </div>
+            <p class="form-control" id="event-num-attending"></p>
+          </div>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text">Resources</span>
+            </div>
+            <ul class="form-control" id="event-resources">
+
+            </ul>
+          </div>
+          <div class="col text-center">
+            <button id="attendButton" class="btn btn-success btn-block" type="button" onclick="">Attend</button> <br>
+          </div>
+        </div>
+        <div id="createEventWindow">
+          <div id="event-content-title">Create Event</div>
+          <hr />
+
+
+          <form id="register_form" autocomplete="off">
+            <div class="form-group">
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">Event Name</span>
+                </div>
+                <input id="eventName" type="text" class="form-control validateField" placeholder="Event Name"/>
+              </div>
+
+              <div class="form-group">
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">Date</span>
+                  </div>
+                  <input id="eventDate" type="date" class="form-control validateField" placeholder="YYYY-MM-DD"/>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">Address</span>
+                  </div>
+                  <input id="addressFromMap" type="text" class="form-control validateField"
+                    placeholder="e.g.: 8888 University Dr. Burnaby, BC" aria-label="Username" readonly/>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">Start Time</span>
+                  </div>
+                  <input id="startTime" type="text" class="form-control validateField" placeholder="HH:MM:SS"/>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">End Time</span>
+                  </div>
+                  <input id="endTime" type="text" class="form-control validateField" placeholder="HH:MM:SS"/>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">Max Capacity</span>
+                  </div>
+                  <input id="maxCapacity" type="number" min="0" class="form-control validateField" placeholder=""/>
+                </div>
+
+              </div>
+              <div class="form-group">
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">Description</span>
+                  </div>
+                  <textarea id="description" class="form-control" placeholder="Notes"></textarea>
+                </div>
+              </div>
+           
+              <div class="sidebar-filter ">
+                <div class="dropdown col text-center">
+                  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Add Category
+                  </button>
+                  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item addCategories" id="Sports" onclick="addCategory(this.id)">Sports</a>
+                    <a class="dropdown-item addCategories" id="Entertainment"
+                      onclick="addCategory(this.id)">Entertainment</a>
+                    <a class="dropdown-item addCategories" id="Music" onclick="addCategory(this.id)">Music</a>
+                    <a class="dropdown-item addCategories" id="Fitness" onclick="addCategory(this.id)">Fitness</a>
+                    <a class="dropdown-item addCategories" id="Visual Arts" onclick="addCategory(this.id)">Visual
+                      Arts</a>
+                    <a class="dropdown-item addCategories" id="Film" onclick="addCategory(this.id)">Film</a>
+                    <a class="dropdown-item addCategories" id="Fashion" onclick="addCategory(this.id)">Fashion</a>
+                    <a class="dropdown-item addCategories" id="Food & Drink" onclick="addCategory(this.id)">Food &
+                      Drink</a>
+                    <a class="dropdown-item addCategories" id="Festivals & Fairs"
+                      onclick="addCategory(this.id)">Festivals & Fairs</a>
+                    <a class="dropdown-item addCategories" id="Nightlife" onclick="addCategory(this.id)">Nightlife</a>
+                    <a class="dropdown-item addCategories" id="Kids & Family" onclick="addCategory(this.id)">Kids &
+                      Family</a>
+                    <a class="dropdown-item addCategories" id="Wedding" onclick="addCategory(this.id)">Wedding</a>
+                    <a class="dropdown-item addCategories" id="Other" onclick="addCategory(this.id)">Other</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div id='populateCategories'>
+              <br />
+            </div>
+            <br>
+            <div class="card-header">
+              Add Resources:
+            </div>
+            
+            <div class="input-group">
+              <input type="text" class="form-control" placeholder="Resource" id="addResource"/>
+              <div class="input-group-append" id="button-addon4">
+                <button class="btn btn-outline-secondary" type="button" onclick="addResources()">Add</button>
+              </div>
+            </div>
+
+            <div id='populateResources'>
+              <br />
+            </div>
+          </form>
+
+          <button class="btn btn-success" id="createBtn">Create</button>
+          <button class="btn btn-danger" id="cancelBtn" onclick="deleteMarker()">Cancel</button>
+
+        </div>
+      </div>
+
+      <div class="container-fluid">
+        <div class="col-lg-12">
+          <div id="overlayText"></div>
+
+          <div id="map_canvas"></div>
+          <div id="floating-panel">
+            <input class="btn btn-light" type="button" value="Create Event" id="createEventBtn"
+              onclick="createEventMode()"></input>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+
+</html>

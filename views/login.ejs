@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<link rel="icon" href="/docs/4.0/assets/img/favicons/favicon.ico">
+	<title>Sign In</title>
+	<!-- <script src=""></script> -->
+	<!-- <link rel="stylesheet" href="/stylesheets/login.css"> -->
+	<link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/floating-labels/">
+
+	<!-- Bootstrap core CSS -->
+	<!-- <link href="../../dist/css/bootstrap.min.css" rel="stylesheet"> -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<style>
+		#heading {
+			/* margin-top: 5em; */
+			color: rgba(87, 0, 168, 0.61);
+			/* color: orange; */
+			/* color: orange; */
+			padding-top: 5em;
+			/* background-color: aqua; */
+		}
+		body {
+			/* background: black; */
+			background-color: white;
+		}
+		h1#sign {
+			/* color: white; */
+			color: black;
+		}
+		a#title {
+			color: rgba(87, 0, 168, 0.61);
+			text-decoration: none;
+		}
+	</style> 
+	<!-- Custom styles for this template -->
+	<!-- <% include ./components/login %> -->
+	<!-- Adapted themes from: https://getbootstrap.com/docs/4.3/examples/ -->
+</head>
+
+<body>	
+	
+		<% include ./components/floating-labels %>
+		<% include ./components/messages %>
+		<h1 id="heading" class="col text-center"><a id="title" href="/">Eventify</a></h1>
+		
+
+		<form action= "" method="POST" class="form-signin">
+			<div>
+				<input name="username" type="text" id="inputUsername" class="form-control inputText" placeholder="Username" required autofocus = "autofocus" autocomplete="off">
+				<!-- <label for="inputEmail">Username</label> -->
+			</div>
+			<br>
+			<div>
+				<input name="password" type="password" id="inputPassword" class="form-control inputText" placeholder="Password" required autocomplete="off">
+				<!-- <label for="inputPassword">Password</label> -->
+			</div>
+			<br>
+			<!-- <div class="checkbox mb-3">
+				<label>
+					<input type="checkbox" value="remember-me"> Remember me
+				</label>
+			</div> -->
+			<!-- <button id="signin" class="btn btn-lg btn-warning btn-block" type="submit">Sign in</button> -->
+			<!-- <p class="mt-5 mb-3 text-muted text-center">&copy; 2017-2018</p> -->
+			<input id="signin" class="btn btn-lg btn-primary btn-block" type="submit" value="Sign In">
+			<a href="./users/create" class="btn btn-lg btn-secondary btn-block" onclick="signUp()">Sign Up</a>
+		</form>
+	</div>
+	<!-- <% include ./components/footer %> -->
+</body>
+
+</html>

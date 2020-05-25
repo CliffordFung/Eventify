@@ -1,0 +1,384 @@
+html,
+body {
+    height: 100%;
+    overflow: hidden;
+    overflow-y: auto;
+}
+
+/*Custom CSS Begin*/
+div#accDrop {
+  left: -100;
+}
+
+/* div.collapse.navbar-collapse { */
+div#navbarNavDropdown {
+  text-align: right;
+}
+
+li.nav-item:hover {
+  /*Navigation Button hovers*/
+  background-color: lightgrey;
+}
+
+a.dropdown-item {
+  text-align: center;
+  width: 100%;
+}
+
+a.dropdown-item:hover {
+  /*Dropdown hovers*/
+  text-align: center;
+  background-color: lightgray;
+}
+
+ul>li:hover {
+  /*Event locations*/
+  background-color: lightgrey;
+}
+
+/* Custom CSS End */
+
+#map_canvas {
+    height: calc(100% - 100px);
+    width: 100%;
+}
+
+.container-fluid,
+.row,
+.col-lg-12 {
+    /*height: 100%;*/
+    width: 100%;
+    padding: 0;
+}
+
+
+/* hamburger menu pseudo element */
+
+.box-shadow-menu {
+    position: relative;
+    padding-left: 1.25em;
+}
+
+.box-shadow-menu:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.25em;
+    width: 1em;
+    height: 0.15em;
+    background: black;
+    box-shadow: 0 0.25em 0 0 black, 0 0.5em 0 0 black;
+}
+
+
+/* hamburger menu pseudo element gradient */
+
+.gradient-menu {
+    padding-left: 1.25em;
+    position: relative;
+}
+
+.gradient-menu:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.21em;
+  bottom: 0.21em;
+  width: 1em;
+  background: linear-gradient(to bottom, black, black 20%, white 20%, white 40%, black 40%, black 60%, white 60%, white 80%, black 80%, black 100%);
+}
+
+
+/* http://www.jqueryscript.net/demo/Bootstrap-Sidebar-Extension-With-jQuery-CSS-CSS3/ */
+
+
+/*!
+* Start Bootstrap - Simple Sidebar HTML Template (http://startbootstrap.com)
+* Code licensed under the Apache License v2.0.
+* For details, see http://www.apache.org/licenses/LICENSE-2.0.
+*/
+
+
+/* Toggle Styles */
+
+.nav-tabs>li {
+    float: none;
+}
+
+.nav-tabs {
+    border-bottom: 0;
+}
+
+.nav-tabs>li.active>a,
+.nav-tabs>li.active>a:focus,
+.nav-tabs>li.active>a:hover {
+    margin: 0;
+    border-radius: 0;
+}
+
+#wrapper {
+  padding-left: 0;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  /* margin-bottom: -50px; */
+}
+
+#wrapper.toggled {
+    padding-left: 250px;
+}
+
+#sidebar-wrapper {
+  /* z-index: 1000; */
+  overflow-x: hidden;
+  position: fixed;
+  left: 250px;
+  width: 0;
+  height: 100%;
+  margin-left: -250px;
+  overflow-y: auto;
+  background: rgb(231, 227, 227);
+  /* background: rgba(238, 232, 241, 0.9); */
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+
+#wrapper.toggled #sidebar-wrapper {
+    width: 250px;
+}
+
+#sidebar-list>li:hover {
+  color: red;
+}
+
+#filter-event-content-title {
+  text-align: center;
+  width: 100%;
+  font-size: 1.5rem;
+}
+
+#event-content-title {
+  text-align: center;
+  width: 100%;
+  font-size: 1.5rem;
+}
+
+#event-content-wrapper {
+  /* z-index: 1000; */
+  position: fixed;
+  left: 265px;
+  width: 0;
+  /* height: 100%; */
+  height: calc(100% - 100px);
+  /* margin-left: -340px; */
+  overflow-y: auto;
+  background: rgb(231, 227, 227);
+  /* background: rgba(255, 255, 255, 0.9); */
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  /* align-content:center; */
+}
+
+.event-field-container {
+  display: flex;
+  /* float: left; */
+}
+
+.event-field-content {
+  /* display: inline; */
+  margin-left: 10px;
+  /* float: left; */
+}
+
+#attendBtn {
+  width: 100%;
+  left: 0;
+  bottom: 1px;
+  /* position: absolute; */
+  /* bottom: 0; */
+  /* width: 70%;
+  height: 40px;
+  
+  border-radius: 15px;
+  background-color: #32a852; */
+
+  /* margin: auto; */
+  /* align-content:center; */
+}
+/* #createBtn {
+  width: 70%;
+  left: 0;
+  bottom: 1px;
+  /* position: absolute; */
+  /* bottom: 0; */
+  /* width: 70%;
+  height: 40px;
+  
+  border-radius: 15px;
+  background-color: #32a852; */
+
+  /* margin: auto; */
+  /* align-content:center; */
+/* } */ 
+
+#cancelBtn {
+  position: relative;
+  width: 30%;
+  height: 40px;
+  border-radius: 15px;
+  background-color: red;
+
+  /* margin: auto; */
+  /* align-content:center; */
+}
+
+
+#wrapper.toggled #event-content-wrapper {
+    width: 250px;
+}
+
+#wrapper.toggled #page-content-wrapper {
+    position: absolute;
+    margin-right: -250px;
+}
+
+
+/* Sidebar Styles */
+
+.sidebar-nav {
+    position: absolute;
+    top: 0;
+    width: 250px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.sidebar-nav li {
+    text-indent: 20px;
+    line-height: 40px;
+}
+
+.sidebar-nav li a {
+    display: block;
+    text-decoration: none;
+    color: #999999;
+}
+
+.sidebar-nav li a:hover {
+    text-decoration: none;
+    color: #fff;
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.sidebar-nav li a:active,
+.sidebar-nav li a:focus {
+    text-decoration: none;
+}
+
+.sidebar-nav>.sidebar-brand {
+    height: 65px;
+    font-size: 18px;
+    line-height: 60px;
+}
+
+.sidebar-nav>.sidebar-filter {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 90%;
+  border-radius: 15px;
+  padding: 5px 5px 5px 10px;
+  border: none;
+
+}
+
+.sidebar-nav>.sidebar-category {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 90%;
+
+}
+
+.sidebar-nav>.sidebar-brand a {
+  color: #3f3f3f;
+}
+
+.sidebar-nav>.sidebar-brand a:hover {
+    color: #fff;
+    background: none;
+}
+
+#event-resources li{
+  list-style-type: none
+}
+.form-login{
+  width: 40em
+}
+
+
+@media(min-width:768px) {
+  #wrapper {
+    padding-left: 600px;
+  }
+
+  #wrapper.toggled {
+    padding-left: 0;
+  }
+
+  #sidebar-wrapper {
+    width: 250px;
+    height: calc(100% - 100px);
+
+  }
+
+  #wrapper.toggled #sidebar-wrapper {
+    width: 0;
+  }
+
+  #event-content-wrapper {
+    width: 335px;
+  }
+
+  #wrapper.toggled #event-content-wrapper {
+    width: 0;
+  }
+
+  #page-content-wrapper {
+    padding: 15px;
+    /*  position: relative;*/
+  }
+
+  #wrapper.toggled #page-content-wrapper {
+    position: relative;
+    margin-right: 0;
+  }
+  #floating-panel {
+    position: absolute;
+    top: 0px;
+    left: 0%;
+    padding: 10px;
+    text-align: center;
+  }
+  #overlayText {
+    position: absolute;
+    text-align: center;
+    /* margin-left: auto; */
+    /* margin-right: auto; */
+    margin-top: 10px;
+    left: 0; 
+    right: 0; 
+    font-size: 25pt;
+  }
+  #dropdownMenuButton{
+    width: 100%;
+    text-align: center;
+  }
+}
+

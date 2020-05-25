@@ -1,0 +1,114 @@
+<html>
+
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+		integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+	</script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+		integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+	</script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+		integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js">
+	</script>
+</head>
+
+<body>
+	<%include components/navbar.ejs%>
+	<br />
+	<!-- <h1>Hello world</h1> -->
+	<div id="updateProfile" class="container text-center">
+
+		<form action="../delete" method="POST">
+			<div id="deleteForm">
+					<div class="form-group">
+							<div class="input-group mb-3">
+								<div class="input-group-prepend">
+									<span class="input-group-text">Event Name</span>
+								</div>
+								<input type="text" name="eventName" class="form-control validateField" value="<%=event.eventName%>">
+			
+							</div>
+						</div>
+						<div class=" form-group">
+							<div class="input-group mb-3">
+								<div class="input-group-prepend">
+									<span class="input-group-text">Date</span>
+								</div>
+								<input type="date" name="eventDate" class="form-control validateField" value="<%=event.eventDate%>">
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="input-group mb-3">
+								<div class="input-group-prepend">
+									<span class="input-group-text">Description</span>
+								</div>
+								<textarea type="text" name="description" class="form-control validateField"
+									value="<%=event.description%>"></textarea>
+			
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="input-group mb-3">
+								<div class="input-group-prepend">
+									<span class="input-group-text">Address</span>
+								</div>
+								<input type="text" name="eventAddress" class="form-control validateField"
+									value="<%=event.eventAddress%>">
+			
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="input-group mb-3">
+								<div class="input-group-prepend">
+									<span class="input-group-text">Max Capacity</span>
+								</div>
+								<input type="text" name="maxCapacity" class="form-control validateField"
+									value="<%=event.maxCapacity%>">
+			
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="input-group mb-3">
+								<div class="input-group-prepend">
+									<span class="input-group-text">Number Attending</span>
+								</div>
+								<input type="text" name="numberAttending" class="form-control validateField"
+									value="<%=event.numberAttending%>">
+			
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="input-group mb-3">
+								<div class="input-group-prepend">
+									<span class="input-group-text">Start Time</span>
+								</div>
+								<input type="text" name="startTime" class="form-control validateField"
+									value="<%=moment(event.startTime).format('LT')%>">
+			
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="input-group mb-3">
+								<div class="input-group-prepend">
+									<span class="input-group-text">End Time</span>
+								</div>
+								<input type="text" name="endTime" class="form-control validateField"
+									value="<%=moment(event.endTime).format('LT')%>">
+			
+							</div>
+						</div>
+			</div>
+
+			<% if (user.id == hostId) {%>
+				<button type="submit" class="btn btn-danger" id="deleteBtn" >Delete</button>
+			<% } %>
+		</form>
+		<!-- <button class="btn btn-success" id="updateBtn" onClick="updateProfile()">Update</button> -->
+	</div>
+
+</body>
+
+</html>
