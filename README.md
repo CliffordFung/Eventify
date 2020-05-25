@@ -1,4 +1,4 @@
-# FinalProject_Group9
+# Eventify (Group Project)
 
 After pulling project, cd into the project root\
 <!-- `cd eventify`\ -->
